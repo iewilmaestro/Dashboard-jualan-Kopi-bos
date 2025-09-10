@@ -1,3 +1,5 @@
+#dahboard pribadi mau jualan kopi
+```
 /dashboard
 │
 ├── index.php             ← halaman login
@@ -15,3 +17,4 @@
 │   ├── auth.php          ← fungsi login
 │   ├── data.php          ← fungsi load & save json
 │   └── utils.php         ← helper (misalnya generate id)
+```
