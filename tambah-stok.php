@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'lib/data.php';
-
+require_once 'layout.php';
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit;
@@ -27,10 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // Ambil daftar produk hampir habis
 $hampir_habis = array_filter($products, fn($p) => $p['stok'] < 5);
+ob_start();
 ?>
 
 <h2>Tambah Stok Produk</h2>
-<a href="dashboard.php">← Kembali</a><br><br>
+<a href="dashboard.php" class="back-link">← Kembali</a><br><br>
 
 <?php if (isset($_GET['success'])): ?>
 <p style="color:green;">Stok berhasil ditambahkan.</p>
@@ -49,7 +50,7 @@ $hampir_habis = array_filter($products, fn($p) => $p['stok'] < 5);
 <?php endif; ?>
 
 <!-- Pencarian -->
-<input type="text" id="cari" placeholder="Cari produk..." style="margin-bottom: 10px; padding: 5px; width: 250px;">
+<input type="text" id="searchProduk" placeholder="Cari produk..." style="margin-bottom: 10px; padding: 5px; width: 250px;">
 
 <form method="post">
   <table border="1" cellpadding="5" cellspacing="0" id="tabel-produk">
@@ -87,7 +88,7 @@ $hampir_habis = array_filter($products, fn($p) => $p['stok'] < 5);
 
 <script>
 // Pencarian baris produk
-document.getElementById('cari').addEventListener('input', function () {
+document.getElementById('searchProduk').addEventListener('input', function () {
   const filter = this.value.toLowerCase();
   const rows = document.querySelectorAll('#tabel-produk tbody tr');
   rows.forEach(row => {
@@ -96,3 +97,10 @@ document.getElementById('cari').addEventListener('input', function () {
   });
 });
 </script>
+
+<?php
+// Ambil isi buffer dan simpan di variabel
+$content = ob_get_clean();
+
+// Tampilkan halaman lengkap dengan layout
+layout('Update Stock', $content);

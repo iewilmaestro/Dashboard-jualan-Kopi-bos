@@ -2,7 +2,7 @@
     {
         "id": 1,
         "nama": "kopi ijo",
-        "stok": 3,
+        "stok": 1,
         "harga": 5000
     },
     {
@@ -16,5 +16,11 @@
         "nama": "kopi ireng",
         "stok": 50,
         "harga": 4000
+    },
+    {
+        "id": 4,
+        "nama": "fanta",
+        "stok": 1,
+        "harga": 6000
     }
 ]

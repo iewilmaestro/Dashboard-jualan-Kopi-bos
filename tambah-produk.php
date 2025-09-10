@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'layout.php';
 require_once 'lib/data.php';
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
@@ -28,10 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
+ob_start();
 ?>
 
 <h2>Tambah Produk Baru</h2>
-<a href="dashboard.php">← Kembali</a><br><br>
+<a href="dashboard.php" class="back-link">← Kembali</a><br><br>
 <?php if ($error): ?>
 <p style="color:red;"><?= $error ?></p>
 <?php endif; ?>
@@ -45,3 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <input type="number" name="harga" min="0" required><br><br>
   <button type="submit">Simpan Produk</button>
 </form>
+<?php
+// Ambil isi buffer dan simpan di variabel
+$content = ob_get_clean();
+
+// Tampilkan halaman lengkap dengan layout
+layout('Tambah Product', $content);

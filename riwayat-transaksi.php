@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once 'layout.php';
 require_once 'lib/data.php';
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
@@ -39,10 +41,11 @@ foreach ($filteredTransactions as $t) {
     $totalPemasukan += $t['harga_total'];
 }
 
+ob_start();
 ?>
 
 <h2>Riwayat Transaksi</h2>
-<a href="dashboard.php">← Kembali</a><br><br>
+<a href="dashboard.php" class="back-link">← Kembali</a><br><br>
 
 <form method="get" style="margin-bottom:20px;">
   <label>
@@ -57,7 +60,7 @@ foreach ($filteredTransactions as $t) {
   &nbsp;&nbsp;
   <button type="submit">Filter</button>
   &nbsp;&nbsp;
-  <a href="riwayat-transaksi.php">Reset</a>
+  <a href="riwayat-transaksi.php" class="reset-link">Reset</a>
 </form>
 
 <h3>Total Pemasukan: Rp <?= number_format($totalPemasukan,0,',','.') ?></h3>
@@ -86,3 +89,10 @@ foreach ($filteredTransactions as $t) {
   <?php endforeach; ?>
 </table>
 <?php endif; ?>
+
+<?php
+// Ambil isi buffer dan simpan di variabel
+$content = ob_get_clean();
+
+// Tampilkan halaman lengkap dengan layout
+layout('Laporan Penjualan', $content);

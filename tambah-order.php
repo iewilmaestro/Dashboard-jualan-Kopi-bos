@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'layout.php';
 require_once 'lib/data.php';
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
@@ -40,10 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
+
+ob_start();
 ?>
 
 <h2>Tambah Order Rombongan</h2>
-<a href="dashboard.php">← Kembali</a><br><br>
+<a href="dashboard.php" class="back-link">← Kembali</a><br><br>
 
 <?php if ($error): ?>
 <p style="color:red;"><?= $error ?></p>
@@ -57,15 +60,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <thead>
       <tr>
         <th>Produk</th>
+		<th>Stok</th>
         <th>Harga (Rp)</th>
         <th>Jumlah</th>
         <th>Pakai Susu (+Rp 1.000)</th>
       </tr>
     </thead>
     <tbody>
-    <?php foreach ($products as $index => $p): ?>
+    <?php foreach ($products as $index => $p):?>
       <tr class="produk-row">
         <td class="nama-produk"><?= htmlspecialchars($p['nama']) ?></td>
+		<td class="nama-produk"><?= htmlspecialchars($p['stok']) ?></td>
         <td><?= number_format($p['harga'],0,',','.') ?></td>
         <td>
           <input type="hidden" name="produk_id[]" value="<?= $p['id'] ?>">
@@ -98,3 +103,10 @@ document.getElementById('searchProduk').addEventListener('input', function() {
   });
 });
 </script>
+
+<?php
+// Ambil isi buffer dan simpan di variabel
+$content = ob_get_clean();
+
+// Tampilkan halaman lengkap dengan layout
+layout('Tambah Orders', $content);

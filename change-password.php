@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'lib/data.php';
-
+require_once 'layout.php';
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit;
@@ -43,10 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $success = "Password berhasil diubah.";
     }
 }
+ob_start();
 ?>
 
 <h2>Ganti Password</h2>
-<a href="dashboard.php">← Kembali</a><br><br>
+<a href="dashboard.php" class="back-link">← Kembali</a><br><br>
 
 <?php if ($error !== ''): ?>
     <p style="color: red;"><?= htmlspecialchars($error) ?></p>
@@ -68,3 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <button type="submit">Ubah Password</button>
 </form>
+<?php
+// Ambil isi buffer dan simpan di variabel
+$content = ob_get_clean();
+
+// Tampilkan halaman lengkap dengan layout
+layout('Ganti Password', $content);

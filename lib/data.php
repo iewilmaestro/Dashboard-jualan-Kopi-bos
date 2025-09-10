@@ -1,4 +1,7 @@
 <?php
+
+date_default_timezone_set("Asia/Jakarta");
+
 function loadData($filename) {
     $file = __DIR__ . '/../data/' . $filename;
     if (!file_exists($file)) {

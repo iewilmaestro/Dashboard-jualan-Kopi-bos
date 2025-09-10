@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'lib/data.php';
-
+require_once 'layout.php';
 if (!isset($_SESSION['username'])) {
     header('Location: index.php');
     exit;
@@ -97,10 +97,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_user'])) {
         }
     }
 }
+ob_start();
 ?>
 
 <h2>Registrasi User Baru (Admin)</h2>
-<a href="dashboard.php">← Kembali</a><br><br>
+<a href="dashboard.php" class="back-link">← Kembali</a><br><br>
 
 <?php if ($error !== ''): ?>
     <p style="color: red;"><?= htmlspecialchars($error) ?></p>
@@ -153,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_user'])) {
         </td>
         <td>
             <?php if ($user['username'] !== $_SESSION['username']): ?>
-                <a href="?hapus=<?= urlencode($user['username']) ?>" onclick="return confirm('Yakin hapus user ini?');">Hapus</a>
+                <a href="?hapus=<?= urlencode($user['username']) ?>" class="delete-link" onclick="return confirm('Yakin hapus user ini?');">Hapus</a>
             <?php else: ?>
                 -
             <?php endif; ?>
@@ -161,3 +162,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_user'])) {
     </tr>
     <?php endforeach; ?>
 </table>
+
+<?php
+// Ambil isi buffer dan simpan di variabel
+$content = ob_get_clean();
+
+// Tampilkan halaman lengkap dengan layout
+layout('Register', $content);
