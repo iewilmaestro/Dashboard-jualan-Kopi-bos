@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1757473786,
+        "produk_id": 1,
+        "jumlah": 1,
+        "susu": false,
+        "harga_total": 5000,
+        "tanggal": "2025-09-10 04:55:30"
+    },
+    {
+        "id": 1757473243,
+        "produk_id": 2,
+        "jumlah": 2,
+        "susu": true,
+        "harga_total": 12000,
+        "tanggal": "2025-09-10 04:55:30"
+    },
+    {
+        "id": 1757473449,
+        "produk_id": 4,
+        "jumlah": 1,
+        "susu": true,
+        "harga_total": 0,
+        "tanggal": "2025-09-10 04:55:30"
+    },
+    {
+        "id": 1757474567,
+        "produk_id": 1,
+        "jumlah": 1,
+        "susu": false,
+        "harga_total": 5000,
+        "tanggal": "2025-09-10 05:14:26"
+    },
+    {
+        "id": 1757474096,
+        "produk_id": 2,
+        "jumlah": 2,
+        "susu": true,
+        "harga_total": 12000,
+        "tanggal": "2025-09-10 05:14:26"
+    },
+    {
+        "id": 1757477306,
+        "produk_id": 1,
+        "jumlah": 1,
+        "susu": true,
+        "harga_total": 6000,
+        "tanggal": "2025-09-10 06:01:32"
+    }
+]

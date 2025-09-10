@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nama": "kopi ijo",
+        "stok": 3,
+        "harga": 5000
+    },
+    {
+        "id": 2,
+        "nama": "extrajoss",
+        "stok": 1,
+        "harga": 5000
+    },
+    {
+        "id": 3,
+        "nama": "kopi ireng",
+        "stok": 50,
+        "harga": 4000
+    }
+]
