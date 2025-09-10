@@ -57,8 +57,8 @@ ob_start(); // tampung output HTML di buffer
             </ul>
             <strong>Total Harga:</strong> Rp <?= number_format($total,0,',','.') ?><br><br>
 
-            <a href="approve-order.php?id=<?= $order['id'] ?>" onclick="return confirm('Setujui order ini?')">[Approve]</a> | 
-            <a href="cancel-order.php?id=<?= $order['id'] ?>" onclick="return confirm('Batalkan order ini?')">[Cancel]</a>
+            <a href="approve-order.php?id=<?= $order['id'] ?>" class="approve" onclick="return confirm('Setujui order ini?')">Approve</a>  
+            <a href="cancel-order.php?id=<?= $order['id'] ?>" class="cancel" onclick="return confirm('Batalkan order ini?')">Cancel</a>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
