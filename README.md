@@ -1,4 +1,14 @@
 # Dahboard pribadi mau jualan kopi
+
+# Database
+masih menggunakan file json
+
+# Fitur
+ - Admin
+   -   
+ - Kasir
+   - 
+# Struktur
 ```
 /dashboard
 │   approve-order.php
@@ -25,5 +35,6 @@
         data.php
         utils.php
 ```
+
 
 
