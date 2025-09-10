@@ -1,4 +1,4 @@
-#dahboard pribadi mau jualan kopi
+# Dahboard pribadi mau jualan kopi
 ```
 /dashboard
 │
@@ -18,3 +18,4 @@
 │   ├── data.php          ← fungsi load & save json
 │   └── utils.php         ← helper (misalnya generate id)
 ```
+
