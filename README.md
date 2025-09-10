@@ -1,21 +1,29 @@
 # Dahboard pribadi mau jualan kopi
 ```
 /dashboard
+│   approve-order.php
+│   cancel-order.php
+│   change-password.php
+│   dashboard.php
+│   index.php
+│   logout.php
+│   pending-orders.php
+│   README.md
+│   register.php
+│   riwayat-transaksi.php
+│   tambah-order.php
+│   tambah-produk.php
+│   tambah-stok.php
 │
-├── index.php             ← halaman login
-├── dashboard.php         ← halaman utama setelah login
-├── jual.php              ← proses jual
-├── beli.php              ← proses beli
-├── logout.php            ← logout session
+├───data
+│       pending_orders.json
+│       products.json
+│       transactions.json
+│       users.json
 │
-├── /data
-│   ├── users.json        ← data akun login
-│   ├── products.json     ← data produk
-│   └── transactions.json ← riwayat jual/beli
-│
-├── /lib
-│   ├── auth.php          ← fungsi login
-│   ├── data.php          ← fungsi load & save json
-│   └── utils.php         ← helper (misalnya generate id)
+└───lib
+        data.php
+        utils.php
 ```
+
 
